@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6A0F51
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case01_ManyFrameworks", "src\Case01_ManyFrameworks\Case01_ManyFrameworks.csproj", "{551B204B-3707-49FF-9987-527343810098}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case04_JustWebApi", "src\Case04_JustWebApi\Case04_JustWebApi.csproj", "{C7C4234B-A0E6-4C73-84A6-CA51340FE536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "src\Utils\Utils.csproj", "{A0722902-80C3-4879-9C73-3B158B6B8637}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{551B204B-3707-49FF-9987-527343810098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{551B204B-3707-49FF-9987-527343810098}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{551B204B-3707-49FF-9987-527343810098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C4234B-A0E6-4C73-84A6-CA51340FE536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C4234B-A0E6-4C73-84A6-CA51340FE536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C4234B-A0E6-4C73-84A6-CA51340FE536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C4234B-A0E6-4C73-84A6-CA51340FE536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0722902-80C3-4879-9C73-3B158B6B8637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0722902-80C3-4879-9C73-3B158B6B8637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0722902-80C3-4879-9C73-3B158B6B8637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0722902-80C3-4879-9C73-3B158B6B8637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
