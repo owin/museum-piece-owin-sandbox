@@ -38,8 +38,8 @@
     <Reference Include="Gate, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Gate.0.3.4\lib\net40\Gate.dll</HintPath>
     </Reference>
-    <Reference Include="Gate.Builder, Version=0.3.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Gate.Builder.0.3.5\lib\net40\Gate.Builder.dll</HintPath>
+    <Reference Include="Gate.Builder, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Gate.Builder.0.3.4\lib\net40\Gate.Builder.dll</HintPath>
     </Reference>
     <Reference Include="Gate.Hosts.AspNet, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Gate.Hosts.AspNet.0.3.4\lib\net40\Gate.Hosts.AspNet.dll</HintPath>

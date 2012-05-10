@@ -1,0 +1,45 @@
+use-standard-lifecycle
+
+use namespace="System"
+use namespace="System.IO"
+use import="Files"
+
+var VERSION='0.1.0'
+var FULL_VERSION='${VERSION}-alpha-1'
+var AUTHORS='OWIN contributors'
+
+var KATANA_VERSION='0.1.1'
+var CORAL_VERSION='0.0.1'
+
+var BASE_DIR='${Directory.GetCurrentDirectory()}'
+var TARGET_DIR='${Path.Combine(BASE_DIR, "target")}'
+var BUILD_DIR='${Path.Combine(TARGET_DIR, "build")}'
+
+var HOME_DIR='${Environment.GetEnvironmentVariable("HOME")}'
+set HOME_DIR='${Environment.GetEnvironmentVariable("HOMEDRIVE") + Environment.GetEnvironmentVariable("HOMEPATH")}' if='string.IsNullOrEmpty(HOME_DIR)'
+
+#delete-target-dir target='clean'
+  directory delete='${TARGET_DIR}'
+
+#assembly-version target='initialize'
+  assemblyinfo each='var updateFile in Files.Include("src/**/AssemblyInfo.cs")' assemblyVersion='${VERSION}' assemblyInformationalVersion='${FULL_VERSION}'
+
+#build-sln target='compile'
+  build each='var projectFile in Files.Include("src/**/*.csproj")' configuration='Release'
+
+#start .compile
+  nuget-install package='Katana' packageVersion='${KATANA_VERSION}' outputDir='packages'
+  nuget-install package='Coral' packageVersion='${CORAL_VERSION}' outputDir='packages'
+  var katanaProgram='${BASE_DIR}\packages\Katana.${KATANA_VERSION}\bin\Katana.exe'
+  var coralProgram='${BASE_DIR}\packages\Coral.${CORAL_VERSION}\bin\Coral.exe'
+  @{
+    var port = 3000;
+    var text = Files.Include("src/**/Startup.cs")
+      .Select(x=>Path.GetDirectoryName(x))
+      .Select(x=>new {path=x, name=Path.GetFileName(x)})
+      .Select(x=>string.Format("{0}: cd {1} && {2} --server firefly --port {3}", x.name, x.path, katanaProgram, ++port))
+      .Aggregate("", (a,b) => a + "\r\n" + b);
+    Log.Info(string.Format("Writing Coral.txt\r\n{0}", text));
+    File.WriteAllText("Coral.txt", text);
+  }
+  exec-clr program='${coralProgram}' commandline='start'

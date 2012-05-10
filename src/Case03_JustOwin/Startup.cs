@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Owin;
 
@@ -9,7 +10,9 @@ namespace Case03_JustOwin
     {
         public void Configuration(IAppBuilder builder)
         {
-            builder.Use<AppDelegate>(_ => App);
+            builder
+                .Use<AppTaskDelegate>(LogRequests)
+                .Use<AppDelegate>(_ => App);
         }
 
         private void App(IDictionary<string, object> env, ResultDelegate result, Action<Exception> fault)
@@ -30,6 +33,17 @@ namespace Case03_JustOwin
                     write(data);
                     end(null);
                 });
+        }
+
+        private AppTaskDelegate LogRequests(AppTaskDelegate app)
+        {
+            return
+                env =>
+                {
+                    var log = (TextWriter)env["host.TraceOutput"];
+                    log.WriteLine("{0} {1}", env["owin.RequestMethod"], env["owin.RequestPath"]);
+                    return app(env);
+                };
         }
     }
 }
