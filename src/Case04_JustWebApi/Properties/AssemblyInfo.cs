@@ -8,10 +8,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Case04_JustWebApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("MSIT")]
-[assembly: AssemblyProduct("Case04_JustWebApi")]
-[assembly: AssemblyCopyright("Copyright © MSIT 2012")]
-[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

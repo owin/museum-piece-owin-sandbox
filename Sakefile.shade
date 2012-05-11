@@ -9,7 +9,7 @@ var FULL_VERSION='${VERSION}-alpha-1'
 var AUTHORS='OWIN contributors'
 
 var KATANA_VERSION='0.1.1'
-var CORAL_VERSION='0.0.1'
+var CORAL_VERSION='0.0.2'
 
 var BASE_DIR='${Directory.GetCurrentDirectory()}'
 var TARGET_DIR='${Path.Combine(BASE_DIR, "target")}'
