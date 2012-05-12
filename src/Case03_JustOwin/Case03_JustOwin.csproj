@@ -36,13 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Gate">
-      <HintPath>..\..\packages\Gate.0.3.4\lib\net40\Gate.dll</HintPath>
+      <HintPath>..\..\packages\Gate.0.3.6\lib\net40\Gate.dll</HintPath>
     </Reference>
     <Reference Include="Gate.Builder">
-      <HintPath>..\..\packages\Gate.Builder.0.3.4\lib\net40\Gate.Builder.dll</HintPath>
+      <HintPath>..\..\packages\Gate.Builder.0.3.6\lib\net40\Gate.Builder.dll</HintPath>
     </Reference>
-    <Reference Include="Gate.Hosts.AspNet, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Gate.Hosts.AspNet.0.3.4\lib\net40\Gate.Hosts.AspNet.dll</HintPath>
+    <Reference Include="Gate.Hosts.AspNet, Version=0.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Gate.Hosts.AspNet.0.3.6\lib\net40\Gate.Hosts.AspNet.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>

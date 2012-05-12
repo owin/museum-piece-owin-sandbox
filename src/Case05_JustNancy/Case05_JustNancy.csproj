@@ -42,7 +42,7 @@
       <HintPath>..\..\packages\Gate.Builder.0.3.6\lib\net40\Gate.Builder.dll</HintPath>
     </Reference>
     <Reference Include="Gate.Hosts.AspNet">
-      <HintPath>..\..\packages\Gate.Hosts.AspNet.0.3.4\lib\net40\Gate.Hosts.AspNet.dll</HintPath>
+      <HintPath>..\..\packages\Gate.Hosts.AspNet.0.3.6\lib\net40\Gate.Hosts.AspNet.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure">
