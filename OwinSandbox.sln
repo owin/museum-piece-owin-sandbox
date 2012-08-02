@@ -21,12 +21,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case05_JustNancy", "src\Cas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case06_JustFunc", "src\Case06_JustFunc\Case06_JustFunc.csproj", "{9A3FB5EA-E4CB-4A3D-84D8-78CDAB3B7AB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case07_JustStatic", "src\Case07_JustStatic\Case07_JustStatic.csproj", "{2FEDFC63-9B3C-4D5E-8391-BF1FC1F1A3BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FEDFC63-9B3C-4D5E-8391-BF1FC1F1A3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FEDFC63-9B3C-4D5E-8391-BF1FC1F1A3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FEDFC63-9B3C-4D5E-8391-BF1FC1F1A3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FEDFC63-9B3C-4D5E-8391-BF1FC1F1A3BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{551B204B-3707-49FF-9987-527343810098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{551B204B-3707-49FF-9987-527343810098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{551B204B-3707-49FF-9987-527343810098}.Release|Any CPU.ActiveCfg = Release|Any CPU
