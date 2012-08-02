@@ -1,22 +1,19 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Owin;
 
 namespace Utils
 {
     public class Middleware
     {
-        public static AppTaskDelegate LogRequests(AppTaskDelegate app)
+        public static Func<AppDelegate, AppDelegate> LogRequests = app => call =>
         {
-            return
-                env =>
-                {
-                    object log;
-                    if (env.TryGetValue("host.TraceOutput", out log))
-                    {                   
-                        ((TextWriter)log).WriteLine("{0} {1}", env["owin.RequestMethod"], env["owin.RequestPath"]);
-                    }
-                    return app(env);
-                };
-        }
+            object log;
+            if (call.Environment.TryGetValue("host.TraceOutput", out log))
+            {
+                ((TextWriter)log).WriteLine("{0} {1}", call.Environment["owin.RequestMethod"], call.Environment["owin.RequestPath"]);
+            }
+            return app(call);
+        };
     }
 }
