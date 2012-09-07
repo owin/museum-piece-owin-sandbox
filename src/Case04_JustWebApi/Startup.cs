@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Owin;
 using Utils;
-using Katana.WebApi;
+
 
 namespace Case04_JustWebApi
 {
@@ -16,7 +16,7 @@ namespace Case04_JustWebApi
             config.Routes.MapHttpRoute("Default", "{controller}", new { controller = "Home" });
             builder
                 .Use(Middleware.LogRequests)
-                .UseMessageHandler(new HttpServer(config));
+                .UseHttpServer(config);
         }
     }
 

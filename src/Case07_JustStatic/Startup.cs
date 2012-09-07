@@ -18,21 +18,16 @@ namespace Case07_JustStatic
         {
             builder
                 .Use(Middleware.LogRequests)
-                .Use(RootIsAlphaHtml)
+                .UseGate((Action<Request>)RootIsAlphaHtml)
                 .UseStatic("public");
         }
 
-        AppDelegate RootIsAlphaHtml(AppDelegate app)
+        void RootIsAlphaHtml(Request req)
         {
-            return call =>
+            if (req.Path == "/")
             {
-                var req = new Request(call);
-                if (req.Path == "/")
-                {
-                    req.Path = "/Alpha.html";
-                }
-                return app(call);
-            };
+                req.Path = "/Alpha.html";
+            }
         }
     }
 }

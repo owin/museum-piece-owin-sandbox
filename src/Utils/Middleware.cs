@@ -1,19 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using Owin;
+using System.Threading.Tasks;
 
 namespace Utils
 {
-    public class Middleware
+    using AppDelegate = Func<IDictionary<string, object>, Task>;
+
+    public static class Middleware
     {
-        public static Func<AppDelegate, AppDelegate> LogRequests = app => call =>
+        public static readonly Func<AppDelegate, AppDelegate> LogRequests = next => env =>
         {
             object log;
-            if (call.Environment.TryGetValue("host.TraceOutput", out log))
+            if (env.TryGetValue("host.TraceOutput", out log))
             {
-                ((TextWriter)log).WriteLine("{0} {1}", call.Environment["owin.RequestMethod"], call.Environment["owin.RequestPath"]);
+                ((TextWriter)log).WriteLine("{0} {1}", env["owin.RequestMethod"], env["owin.RequestPath"]);
             }
-            return app(call);
+            return next(env);
         };
     }
 }

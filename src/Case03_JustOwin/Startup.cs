@@ -14,30 +14,23 @@ namespace Case03_JustOwin
         {
             builder
                 .Use(Middleware.LogRequests)
-                .Use<AppDelegate>(_ => App);
+                .Run(this);
         }
 
-        private Task<ResultParameters> App(CallParameters call)
+        private Task Invoke(IDictionary<string, object> env)
         {
             var data = Encoding.UTF8.GetBytes(string.Format(
                 "You did a {0} at {1}",
-                call.Environment["owin.RequestMethod"],
-                call.Environment["owin.RequestPath"]));
+                env["owin.RequestMethod"],
+                env["owin.RequestPath"]));
 
-            return TaskHelpers.FromResult(new ResultParameters
-            {
-                Properties = new Dictionary<string, object>(),
-                Status = 200,
-                Headers = new Dictionary<string, string[]>
-                {
-                    {"Content-Type", new[] {"text/plain"}}
-                },
-                Body = output =>
-                {
-                    output.Write(data, 0, data.Length);
-                    return TaskHelpers.Completed();
-                }
-            });
+            var responseHeaders = (IDictionary<string, string[]>)env["owin.ResponseHeaders"];
+            var responseBody = (Stream)env["owin.ResponseBody"];
+
+            env["owin.ResponseStatusCode"] = 200;
+            responseHeaders["Content-Type"] = new[] { "text/plain" };
+            responseBody.Write(data, 0, data.Length);
+            return TaskHelpers.Completed();
         }
     }
 }

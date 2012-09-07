@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Gate;
 using Owin;
 using Utils;
@@ -11,14 +12,13 @@ namespace Case02_JustGate
         {
             builder
                 .Use(Middleware.LogRequests)
-                .UseDirect(App);
+                .UseGate((Func<Request, Response, Task>) App);
         }
 
         private async Task App(Request req, Response res)
         {
             res.ContentType = "text/plain";
             res.Write("You did a {0} at {1}", req.Method, req.Path);
-            res.End();
         }
     }
 }
