@@ -8,7 +8,7 @@ var VERSION='0.1.0'
 var FULL_VERSION='${VERSION}-alpha-1'
 var AUTHORS='OWIN contributors'
 
-var KATANA_VERSION='0.1.1'
+var KATANA_VERSION='0.3'
 var CORAL_VERSION='0.0.2'
 
 var BASE_DIR='${Directory.GetCurrentDirectory()}'
@@ -37,7 +37,7 @@ set HOME_DIR='${Environment.GetEnvironmentVariable("HOMEDRIVE") + Environment.Ge
     var text = Files.Include("src/**/Startup.cs")
       .Select(x=>Path.GetDirectoryName(x))
       .Select(x=>new {path=x, name=Path.GetFileName(x)})
-      .Select(x=>string.Format("{0}: cd {1} && {2} --server kayak --port {3}", x.name, x.path, katanaProgram, ++port))
+      .Select(x=>string.Format("{0}: cd {1} && {2} --server httplistener --port {3}", x.name, x.path, katanaProgram, ++port))
       .Aggregate("", (a,b) => a + "\r\n" + b);
     Log.Info(string.Format("Writing Coral.txt\r\n{0}", text));
     File.WriteAllText("Coral.txt", text);

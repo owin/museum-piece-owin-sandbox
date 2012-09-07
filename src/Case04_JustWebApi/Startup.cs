@@ -2,9 +2,9 @@
 using System.IO;
 using System.Net.Http;
 using System.Web.Http;
-using Gate.Adapters.AspNetWebApi;
 using Owin;
 using Utils;
+
 
 namespace Case04_JustWebApi
 {
@@ -15,8 +15,8 @@ namespace Case04_JustWebApi
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute("Default", "{controller}", new { controller = "Home" });
             builder
-                .Use<AppTaskDelegate>(Middleware.LogRequests)
-                .RunHttpServer(config);
+                .Use(Middleware.LogRequests)
+                .UseHttpServer(config);
         }
     }
 

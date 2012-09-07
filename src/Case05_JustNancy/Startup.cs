@@ -10,7 +10,7 @@ namespace Case05_JustNancy
         public void Configuration(IAppBuilder builder)
         {
             builder
-                .Use<AppTaskDelegate>(Middleware.LogRequests)
+                .Use(Middleware.LogRequests)
                 .RunNancy();
         }
     }
@@ -20,6 +20,7 @@ namespace Case05_JustNancy
         public HomeModule()
         {
             Get["/"] = _ => "Hello world!";
+            Get["/alpha"] = _ => View["Alpha"];
         }
     }
 }
